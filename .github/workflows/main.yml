@@ -1,0 +1,19 @@
+name: Test Github Workflows
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  info:
+    name: Get Information
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Get Webhook JSON
+        env:
+          JSON_FILE: ${{ vars.GITHUB_EVENT_PATH }}
+        run: |
+          cat ${JSON_FILE}
