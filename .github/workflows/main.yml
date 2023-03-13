@@ -18,7 +18,7 @@ jobs:
         run: |
           cat ${GITHUB_EVENT_PATH}
           echo
-          PR_NUMBER="$(cat ${GITHUB_EVENT_PATH} | jq -r .head_commit.message |grep '#' |perl -pe 's/.*#(\d+).*/\1/')
+          PR_NUMBER="$(cat ${GITHUB_EVENT_PATH} | jq -r .head_commit.message |grep '#' |perl -pe 's/.*#(\d+).*/\1/')"
           curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${GITHUB_TOKEN}"\
