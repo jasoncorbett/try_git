@@ -19,7 +19,7 @@ jobs:
           cat ${GITHUB_EVENT_PATH}
           echo
           PR_NUMBER="$(cat ${GITHUB_EVENT_PATH} | jq -r .head_commit.message |grep '#' |perl -pe 's/.*#(\d+).*/\1/')"
-          PR_NAME=$(curl -L \
+          PR_NAME="$(curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${GITHUB_TOKEN}"\
             -H "X-GitHub-Api-Version: 2022-11-28" \
