@@ -17,3 +17,5 @@ jobs:
           JSON_FILE: ${{ vars.GITHUB_EVENT_PATH }}
         run: |
           cat ${JSON_FILE}
+          cat ${GITHUB_EVENT_PATH}
+          env
