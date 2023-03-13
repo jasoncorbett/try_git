@@ -17,5 +17,5 @@ jobs:
           JSON_FILE: ${{ vars.GITHUB_EVENT_PATH }}
         run: |
           WHO_DID_IT="$(cat ${GITHUB_EVENT_PATH} |jq -r .head_commit.author.name) ($(cat ${GITHUB_EVENT_PATH} |jq -r .head_commit.author.username))"
-          PR_NAME="$(cat ${GITHUB_EVENT_PATH} |jq -r .head_commit.message |tail -1)
+          PR_NAME="$(cat ${GITHUB_EVENT_PATH} |jq -r .head_commit.message |tail -1)"
           echo "${PR_NAME} -- ${WHO_DID_IT}"
